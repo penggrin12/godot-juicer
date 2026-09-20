@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://btgbb42yb6c61"]
+
+[ext_resource type="FontFile" uid="uid://byw0ii5456e4p" path="res://assets/m6x11plus.ttf" id="1_7mycd"]
+[ext_resource type="Script" uid="uid://bowept5ihhfxw" path="res://addons/juicer/button_juicer.gd" id="1_ig7tw"]
+[ext_resource type="AudioStream" uid="uid://bmwqgvern0v6u" path="res://assets/audio/Minimalist1.ogg" id="2_lquwl"]
+[ext_resource type="AudioStream" uid="uid://b2kp305vey6fo" path="res://assets/audio/Minimalist2.ogg" id="3_7mycd"]
+[ext_resource type="AudioStream" uid="uid://l8cg4vkrckcn" path="res://assets/audio/Minimalist3.ogg" id="4_272bh"]
+[ext_resource type="AudioStream" uid="uid://chsodt2byr2us" path="res://assets/audio/Minimalist4.ogg" id="5_5vw27"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lquwl"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 0.94509804, 0.9098039, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 5
+expand_margin_left = 6.0
+expand_margin_top = 6.0
+expand_margin_right = 6.0
+expand_margin_bottom = 6.0
+shadow_color = Color(0.08, 0.08, 0.08, 0.23137255)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_6uqi0"]
+random_pitch = 1.122462
+streams_count = 4
+stream_0/stream = ExtResource("2_lquwl")
+stream_1/stream = ExtResource("3_7mycd")
+stream_2/stream = ExtResource("4_272bh")
+stream_3/stream = ExtResource("5_5vw27")
+
+[node name="Main" type="Control" unique_id=1397617123]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="." unique_id=125151868]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.5
+offset_top = -20.5
+offset_right = 85.5
+offset_bottom = 20.5
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+theme_override_colors/font_color = Color(0.07762889, 0.0776288, 0.07762881, 1)
+theme_override_colors/font_focus_color = Color(0.07762889, 0.0776288, 0.07762881, 1)
+theme_override_colors/font_pressed_color = Color(0.49411765, 0.14509805, 0.3254902, 1)
+theme_override_colors/font_hover_color = Color(0.078431375, 0.078431375, 0.078431375, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.49411765, 0.14509805, 0.3254902, 1)
+theme_override_fonts/font = ExtResource("1_7mycd")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_lquwl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lquwl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lquwl")
+text = "      Juice      "
+
+[node name="Juicer" type="Node" parent="Button" unique_id=434014242]
+script = ExtResource("1_ig7tw")
+audio_pressed = SubResource("AudioStreamRandomizer_6uqi0")
